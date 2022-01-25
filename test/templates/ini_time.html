@@ -1,0 +1,28 @@
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>初期設定画面</title>
+</head>
+<body>
+  {% include "urls.html" %}
+  
+<h1>設定1</h1>
+  <form action = "/ini_time" method = "post">
+    <p>標準CT：
+    <input type="number" name="H_CT" value={{H_CT}}>秒</p>
+    <p>閾値CT：
+    <input type="number" name="S_CT" value={{S_CT}}>秒</p>
+    <p>就業時間：
+    <input type="time" name="worktime_start" value={{worktime_start}}>
+    〜
+    <input type="time" name="worktime_end" value={{worktime_end}}></p>
+    {%  for ky in kyukei %}
+      <p>休憩時間{{ loop.index }}：
+      <input type="time" name='kyukeiS_{{ loop.index }}' value={{ky[0]}}>
+      〜
+      <input type="time" name='kyukeiE_{{ loop.index }}' value={{ky[1]}}>
+      </p>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">送信する</button>
+  </form>
+</body>

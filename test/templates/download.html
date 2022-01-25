@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    {% include "urls.html" %}
+    <p>ダウンロード</p>
+        {%  for ky in kyukei %}
+            <form method = "post" name="form{{ loop.index }}" action = "/download">
+            <input type="hidden" name="filename" value={{ky}}>
+            <a href="javascript:form{{ loop.index }}.submit()">{{ky}}</a>
+            </form>
+        {% endfor %}
+</body>
+</html>

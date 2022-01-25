@@ -1,0 +1,31 @@
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>初期設定画面</title>
+</head>
+<body>
+  {% include "urls.html" %}
+
+<h1>設定1</h1>
+  <form action = "/ini_graph" method = "post">
+
+    <p>進捗グラフの大きさ</p>
+    <p>高さ:
+    <input type="number" step="1" name="process_graph_height" value={{process_graph_height}}>
+    　横幅:
+    <input type="number" step="1" name="process_graph_width" value={{process_graph_width}}></p>
+
+
+    <p>CTグラフの大きさ</p>
+    <p>高さ:
+      <input type="number" step="1" name="CT_graph_height" value={{CT_graph_height}}>
+      　横幅:
+      <input type="number"step="1" name="CT_graph_width" value={{CT_graph_width}}></p>
+
+    <p>CTグラフの軸の値</p>
+    <p>最大値:
+    <input type="number" step="1" name="CT_graph_scalemax" value={{CT_graph_scalemax}}></p>
+  
+    <button type="submit" class="btn btn-success">送信する</button>
+  </form>
+</body>
